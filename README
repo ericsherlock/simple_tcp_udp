@@ -1,0 +1,56 @@
+To Compile and Run UDP:
+	Navigate to the 'udp' directory 
+		-->From inside 'udp' directory:
+			
+			make udp
+
+	For example runs, will use 'test' text file inside 'udp' directory (Note: Could also use the provided pdf but it takes much longer)
+
+   		-->To Run STOP AND WAIT: 
+   			-->In Terminal 1:
+
+				./udp_server.o -p 80 25 1 > results/sw_server_output
+
+			-->In Terminal 2: 
+
+				./udp_client.o -p 80 localhost -s 512 test_file_name stopWait_test.txt 1 > results/sw_client_output
+
+   		-->To Run GO BACK N:
+			-->In Terminal 1:
+
+				./udp_server.o -p 80 25 2 > results/gb_server_output
+
+			--In Terminal 2:
+
+				./udp_client.o -p 80 localhost -s 512 test_file_name goBackN_test.txt 2 > results/gb_client_output
+	
+	When finished, get listing of files in 'results' directory and there should be 3 new files:
+	
+			 ['stopWait_test', 'sw_server_output', 'sw_client_output.']
+			
+							or
+		 	 
+			 ['goBackN_test', 'gb_server_output', 'gb_client_output']
+	
+-->From inside 'tcp' directory
+	Navigate to the 'tcp' directory
+		-->From inside 'tcp' directory
+
+			make tcp
+
+        For example runs, put a pdf inside the 'tcp' directory (Here will call it 'test.pdf'
+
+                -->To Run TCP:
+                        -->In Terminal 1:
+
+                                ./tcp_server.o > results/tcp_server_output.txt
+                        
+                        -->In Terminal 2:
+                                
+                                ./tcp_client.o localhost test.pdf
+
+        When finished, get listing of files in 'results' directory and there should be 2 new files:
+                
+                         ['new_test.pdf', 'tcp_server_output']
+			 
+	--> Note: The only output from TCP will be from the server. Once whole file is received it will say it is finished and ready for the next file.  
